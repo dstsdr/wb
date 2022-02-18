@@ -1,0 +1,73 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<br>
+<h2>{{ message }}Оставьте свой отзыв о нашей работе</h2>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <br>
+        <label for="{{form.name.id_for_label}}">{{form.name.label}}:</label>
+        {{form.name}}<br><br>
+        <label for="{{form.gender.id_for_label}}">{{form.gender.label}}:</label>
+        {{form.gender}}
+        <label for="{{form.message.id_for_label}}">{{form.message.label}}:</label><br>
+        {{form.message}}<br><br>
+        <button type="submit" id="b1"><span>Отправить</span></button>
+    </form>
+</div>
+{% else %}
+<br>
+<h2>Благодарим за оставленную информацию</h2>
+<h3>Отображение вашего отзыва:</h3>
+<ul>
+    <li><span>Имя:</span> {{data.name}} </li>
+    <li><span>Пол:</span> {{data.gender}} </li>
+    <li><span>Комментарий:</span> {{data.message}}   </li>
+</ul>
+
+{% endif %}
+<script>
+    function id_name() {
+        $('#id_name').css('background-color', 'PeachPuff')
+    }
+    $('#id_name').focus(id_name);
+    function id_name2() {
+        $('#id_name').css('background-color', 'white')
+    }
+    $('#id_name').blur(id_name2);
+    function id_message() {
+        $('#id_message').css('background-color', 'pink')
+    }
+    $('#id_message').focus(id_message);
+    function id_message2() {
+        $('#id_message').css('background-color', 'white')
+    }
+    $('#id_message').blur(id_message2);
+    function id_gender() {
+        $('#id_gender').css('color', 'maroon')
+    }
+    $('#id_gender').mouseover(id_gender);
+    function id_gender2() {
+        $('#id_gender').css('color', 'black')
+    }
+    $('#id_gender').mouseout(id_gender2);
+    function id_btn() {
+        $('#id_btn').css('color', 'maroon')
+    }
+    $('#id_btn').mouseover(id_btn);
+    function id_btn2() {
+        $('#id_btn').css('color', 'black')
+    }
+    $('#id_btn').mouseout(id_btn2);
+    function b1_click() {
+        $('#b1').css('color', 'red')
+    }
+    $('#b1').mouseover(b1_click);
+    function b1_click2() {
+        $('#b1').css('color', 'black')
+    }
+    $('#b1').mouseout(b1_click2);
+</script>
+
+{% endblock %}

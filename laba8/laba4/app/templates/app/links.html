@@ -1,0 +1,17 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<h2>{{ title }}.</h2>
+<b>Ссылки:</b>
+<ul>
+    <li> <p><a href="http://elib.slib.ru/"> Электронная библиотека</a></p></li>
+    <li> <p><a href="http://museum.slib.ru/"> Виртуальный музей</a></p></li>
+    <li> <a href="https://www.google.com/maps/search/гугл+карты/@61.2609238,73..." target="_blank"> <img src="{% static 'app/content/logo1.png' %}" alt="Logo 1" /> Местоположение</a>
+    </li>
+</ul>
+
+
+{% endblock %}
+
